@@ -3,10 +3,12 @@ import java.util.Random;
 public class Mastermind extends Game {
   private int attempts;
   private String secretCode;
+  private Guess playerInput;
 
   public Mastermind() {
     this.attempts = 10;
     this.secretCode = generateCode();
+    this.playerInput = new Guess();
   }
 
   public Mastermind(int attempts, String secretCode) {
@@ -23,6 +25,7 @@ public class Mastermind extends Game {
   }
 
   public Mastermind(String[] args) {
+    this.playerInput = new Guess();
     if (args.length < 1) {
       this.attempts = 10;
       this.secretCode = generateCode();
@@ -49,6 +52,10 @@ public class Mastermind extends Game {
     return attempts;
   }
 
+  public void setAttempts(int newAttempt) {
+    this.attempts = newAttempt;
+  }
+
   public static String generateCode() {
     int nums[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
     int last_index = 8;
@@ -67,6 +74,26 @@ public class Mastermind extends Game {
   }
 
   public void play() {
-    System.out.println("Placeholder play message");
+    int round = 0;
+    Game.startGameMessage("Will you find the secret code?\nPlease enter a valid guess");
+    while (getGameState() == true) {
+      System.out.println("---\nRound " + round);
+      playerInput.getInput();
+      if (playerInput.getPlayerGuess() == null){
+        System.out.println("player input is null");
+        setGameState(false);
+      } else if (!playerInput.validInput()) {
+        System.out.println("Wrong input!");
+        continue;
+      } else if (playerInput.matchSecretCode(secretCode)) {
+        setGameState(false);
+      } else {
+        round++;
+        if (round == attempts) {
+          setGameState(false);
+        }
+      }
+    }
+    System.out.println("Game over");
   }
 }

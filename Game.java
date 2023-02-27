@@ -10,6 +10,10 @@ public class Game implements Play {
     this.gameIsRunning = runningGameState;
   }
 
+  public void setGameState(boolean newGameState) {
+    this.gameIsRunning = newGameState;
+  }
+
   public boolean getGameState() {
     return gameIsRunning;
   }
