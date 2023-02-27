@@ -51,7 +51,6 @@ public class Mastermind extends Game {
 
   public static String generateCode() {
     int nums[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
-    int intCode[] = new int[4];
     int last_index = 8;
     Random random = new Random();
     String code = new String();
@@ -61,7 +60,6 @@ public class Mastermind extends Game {
 
       nums[last_index] = nums[rand_index];
       nums[rand_index] = temp;
-      intCode[i] = nums[last_index];
       code = code + String.valueOf(nums[last_index]);
       last_index--;
     }

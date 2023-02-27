@@ -10,6 +10,10 @@ public class Game implements Play {
     this.gameIsRunning = runningGameState;
   }
 
+  public boolean getGameState() {
+    return gameIsRunning;
+  }
+
   public static void startGameMessage(String startMessage) {
     System.out.println(startMessage);
   }
