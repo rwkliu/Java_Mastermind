@@ -80,7 +80,6 @@ public class Mastermind extends Game {
       System.out.println("---\nRound " + round);
       playerInput.getInput();
       if (playerInput.getPlayerGuess() == null){
-        System.out.println("player input is null");
         setGameState(false);
       } else if (!playerInput.validInput()) {
         System.out.println("Wrong input!");

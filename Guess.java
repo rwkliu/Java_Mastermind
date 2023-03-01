@@ -35,6 +35,15 @@ public class Guess {
     return true;
   }
 
+  public static boolean inSecretCode(char piece, String secretCode) {
+    for (char c : secretCode.toCharArray()) {
+      if (c == piece) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public boolean matchSecretCode(String secretCode) {
     int misplaced = 0;
     int wellPlaced = 0;
@@ -46,7 +55,7 @@ public class Guess {
     for (int i = 0; i < 4; i++) {
       if (playerGuess.charAt(i) == secretCode.charAt(i)) {
         wellPlaced++;
-      } else if (secretCode.contains(playerGuess.substring(i,i))) {
+      } else if (inSecretCode(playerGuess.charAt(i), secretCode)) {
         misplaced++;
       }
     }
