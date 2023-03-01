@@ -1,6 +1,11 @@
 import java.util.Random;
 import java.util.Scanner;
 
+/* 
+ * The Mastermind class inherits from the Game parent class. This class contains the code for 
+ * running the Mastermind game, including initializing the game parameters and running the actions
+ * for each round.
+ */
 public class Mastermind extends Game {
   private int attempts;
   private String secretCode;
@@ -44,6 +49,7 @@ public class Mastermind extends Game {
     this.attempts = newAttempt;
   }
 
+  //Generate the 4 digit secret code using the Fisher-Yates algorithm
   public static String generateCode() {
     int nums[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
     int last_index = 8;

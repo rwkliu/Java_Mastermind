@@ -1,4 +1,7 @@
-
+/* 
+ * The Game class contains a Game object's game state and the methods for printing the game start
+ * message and play method. The play method implements the Play interface. 
+ */ 
 public class Game implements Play {
   private boolean gameIsRunning;
 

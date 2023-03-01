@@ -1,3 +1,7 @@
+/*
+ * The Guess class contains the player's guess and the methods for validing the guess and checking
+ * for the correct code.
+ */ 
 public class Guess {
   private String playerGuess;
 
@@ -26,6 +30,7 @@ public class Guess {
     return true;
   }
 
+  //Check for the piece in the secret code
   public boolean inSecretCode(char piece, String secretCode) {
     for (char c : secretCode.toCharArray()) {
       if (c == piece) {
@@ -35,6 +40,7 @@ public class Guess {
     return false;
   }
 
+  //Check the playerGuess against the secret code
   public boolean matchSecretCode(String secretCode) {
     int misplaced = 0;
     int wellPlaced = 0;
