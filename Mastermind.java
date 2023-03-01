@@ -73,12 +73,12 @@ public class Mastermind extends Game {
         playerInput.setPlayerGuess(input.next());
         if (!playerInput.validInput()) {
           System.out.println("Wrong input!");
-          continue;
         } else if (playerInput.matchSecretCode(secretCode)) {
           setGameState(false);
         } else {
           round++;
           if (round == attempts) {
+            System.out.println("Game over. The secret code was " + secretCode);
             setGameState(false);
           }
         }
@@ -88,6 +88,5 @@ public class Mastermind extends Game {
       }
     }
     input.close();
-    System.out.println("Game over");
   }
 }
