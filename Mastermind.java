@@ -67,8 +67,9 @@ public class Mastermind extends Game {
     Scanner input = new Scanner(System.in);
     while (getGameState() == true) {
       input.reset();
+      System.out.println("---\nRound " + round);
+      System.out.print(">");
       if (input.hasNext()) {
-        System.out.println("---\nRound " + round);
         playerInput.setPlayerGuess(input.next());
         if (!playerInput.validInput()) {
           System.out.println("Wrong input!");
