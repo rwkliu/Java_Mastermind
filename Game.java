@@ -23,6 +23,6 @@ public class Game implements Play {
   }
 
   public void play() {
-    System.out.println("Default play method");
+    Game.startGameMessage("Start the game!");
   }
 }

@@ -12,19 +12,6 @@ public class Mastermind extends Game {
     this.playerInput = new Guess();
   }
 
-  public Mastermind(int attempts, String secretCode) {
-    if (attempts > 0 && secretCode != null) {
-      this.attempts = attempts;
-      this.secretCode = secretCode;
-    } 
-    if (attempts <= 0) {
-      this.attempts = 10;
-    }
-    if (secretCode == null) {
-      this.secretCode = generateCode();
-    }
-  }
-
   public Mastermind(String[] args) {
     this.playerInput = new Guess();
     if (args.length < 1) {
