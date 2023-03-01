@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Guess {
   private String playerGuess;
 
@@ -11,15 +9,8 @@ public class Guess {
     return this.playerGuess;
   }
 
-  public void getInput() {
-    Scanner input = new Scanner(System.in);
-    input.reset();
-    if (input.hasNext()) {
-      this.playerGuess = input.next();
-    } else {
-      this.playerGuess = null;
-    }
-    // input.close();
+  public void setPlayerGuess(String input) {
+    this.playerGuess = input;
   }
 
   public boolean validInput() {
@@ -35,7 +26,7 @@ public class Guess {
     return true;
   }
 
-  public static boolean inSecretCode(char piece, String secretCode) {
+  public boolean inSecretCode(char piece, String secretCode) {
     for (char c : secretCode.toCharArray()) {
       if (c == piece) {
         return true;

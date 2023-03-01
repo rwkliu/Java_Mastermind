@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Mastermind extends Game {
   private int attempts;
@@ -76,23 +77,29 @@ public class Mastermind extends Game {
   public void play() {
     int round = 0;
     Game.startGameMessage("Will you find the secret code?\nPlease enter a valid guess");
+    Scanner input = new Scanner(System.in);
     while (getGameState() == true) {
-      System.out.println("---\nRound " + round);
-      playerInput.getInput();
-      if (playerInput.getPlayerGuess() == null){
-        setGameState(false);
-      } else if (!playerInput.validInput()) {
-        System.out.println("Wrong input!");
-        continue;
-      } else if (playerInput.matchSecretCode(secretCode)) {
-        setGameState(false);
-      } else {
-        round++;
-        if (round == attempts) {
+      input.reset();
+      if (input.hasNext()) {
+        System.out.println("---\nRound " + round);
+        playerInput.setPlayerGuess(input.next());
+        if (!playerInput.validInput()) {
+          System.out.println("Wrong input!");
+          continue;
+        } else if (playerInput.matchSecretCode(secretCode)) {
           setGameState(false);
+        } else {
+          round++;
+          if (round == attempts) {
+            setGameState(false);
+          }
         }
       }
+      else {
+        setGameState(false);
+      }
     }
+    input.close();
     System.out.println("Game over");
   }
 }
