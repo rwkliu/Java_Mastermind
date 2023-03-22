@@ -54,17 +54,17 @@ public class Mastermind extends Game {
     int nums[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
     int last_index = 8;
     Random random = new Random();
-    String code = new String();
+    StringBuilder code = new StringBuilder();
     for (int i = 0; i < 4; i++) {
       int rand_index = random.nextInt(100) % last_index;
       int temp = nums[last_index];
 
       nums[last_index] = nums[rand_index];
       nums[rand_index] = temp;
-      code = code + String.valueOf(nums[last_index]);
+      code.append(nums[last_index]);
       last_index--;
     }
-    return code;
+    return code.toString();
   }
 
   public void play() {
